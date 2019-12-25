@@ -12,7 +12,7 @@
 
 using std::forward;
 
-#define ENABLE_DEBUG
+// #define ENABLE_DEBUG
 #define WRAP_FORWARD_INT_FIELD(keyName, type) \
   const auto keyName = Decoder::readVarInt<type>(executor->forward_());
 
