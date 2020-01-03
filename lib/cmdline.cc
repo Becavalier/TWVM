@@ -9,12 +9,15 @@
 #include "lib/include/errors.h"
 #include "lib/include/constants.h"
 
-using std::ostream;
-using std::string;
-using std::cout;
-using std::endl;
-using std::max;
-using std::stringstream;
+namespace twvm {
+namespace internal {
+
+using ::std::ostream;
+using ::std::string;
+using ::std::cout;
+using ::std::endl;
+using ::std::max;
+using ::std::stringstream;
 
 // initial configurations;
 bool CommandLine::isDebugMode = false;
@@ -184,3 +187,6 @@ void Options::parse(int argc, const char* argv[]) {
     ++option->seen;
   }
 }
+
+}  // namespace internal
+}  // namespace twvm

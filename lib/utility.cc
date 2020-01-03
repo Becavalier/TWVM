@@ -5,15 +5,18 @@
 #include "lib/utility.h"
 #include "lib/include/macros.h"
 
+namespace twvm {
+namespace internal {
+
 #define BUILDSTAMP ( __DATE__ " " __TIME__ )
 
-using std::max_element;
-using std::left;
-using std::setw;
-using std::setfill;
-using std::transform;
-using std::accumulate;
-using std::ostream;
+using ::std::max_element;
+using ::std::left;
+using ::std::setw;
+using ::std::setfill;
+using ::std::transform;
+using ::std::accumulate;
+using ::std::ostream;
 
 shared_ptr<Printer> Printer::singleIns = nullptr;
 
@@ -81,3 +84,6 @@ void Utility::drawLogoGraphic(bool simplify) {
     cout << "  Built: " << BUILDSTAMP << "\n\n";
   }
 }
+
+}  // namespace internal
+}  // namespace twvm

@@ -8,7 +8,10 @@
 #include "lib/decoder.h"
 #include "lib/utility.h"
 
-using std::array;
+namespace twvm {
+namespace internal {
+
+using ::std::array;
 
 const bool Executor::checkStackState(shared_ptr<WasmInstance> wasmIns) {
   // check the status of stack;
@@ -97,3 +100,6 @@ const void Executor::crawler(
     }
   }
 }
+
+}  // namespace internal
+}  // namespace twvm

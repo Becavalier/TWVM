@@ -13,11 +13,14 @@
 #include "lib/instances.h"
 #include "lib/include/constants.h"
 
-using std::shared_ptr;
-using std::function;
-using std::vector;
-using std::unordered_map;
-using std::move;
+namespace twvm {
+namespace internal {
+
+using ::std::shared_ptr;
+using ::std::function;
+using ::std::vector;
+using ::std::unordered_map;
+using ::std::move;
 
 #define ITERATE_OPERANDS_VALUE_TYPES(V) \
   V(i32, int32_t) \
@@ -152,5 +155,8 @@ class Executor {
     return absAddr();
   }
 };
+
+}  // namespace internal
+}  // namespace twvm
 
 #endif  // EXECUTOR_H_

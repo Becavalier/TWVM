@@ -3,7 +3,10 @@
 #include "lib/decoder.h"
 #include "lib/include/constants.h"
 
-using std::vector;
+namespace twvm {
+namespace internal {
+
+using ::std::vector;
 
 uint8_t Decoder::readUint8(const uint8_t* source, size_t *step) {
   if (step) {
@@ -56,3 +59,6 @@ string Decoder::decodeName(const uint8_t* source, size_t len, size_t *step) {
   free(reinterpret_cast<void*>(heapCharSeq));
   return str;
 }
+
+}  // namespace internal
+}  // namespace twvm

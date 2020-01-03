@@ -7,8 +7,11 @@
 #include "lib/inspector.h"
 #include "lib/include/macros.h"
 
-using std::stringstream;
-using std::to_string;
+namespace twvm {
+namespace internal {
+
+using ::std::stringstream;
+using ::std::to_string;
 
 void Inspector::inspect(shared_ptr<WasmInstance> wasmIns) {
   auto &printer = Printer::instance();
@@ -108,3 +111,6 @@ void Inspector::inspect(shared_ptr<WasmInstance> wasmIns) {
   }
   printer.printTableView();
 }
+
+}  // namespace internal
+}  // namespace twvm

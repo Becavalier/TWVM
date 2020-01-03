@@ -15,6 +15,9 @@
 #include "lib/include/errors.h"
 #include "lib/cmdline.h"
 
+namespace twvm {
+namespace internal {
+
 #define OUTPUT_PREFIX "twvm: "
 // ANSI escape code (Colors);
 #define COLOR_CTL_NORMAL "\x1b[37;40m"
@@ -27,21 +30,21 @@
 #define INTERNAL_SAY_PREFIX_OUTPUT() \
   cout << OUTPUT_PREFIX << "\x1b[92;40m" << "out: " << COLOR_CTL_NORMAL
 
-using std::runtime_error;
-using std::string;
-using std::vector;
-using std::shared_ptr;
-using std::make_shared;
-using std::cout;
-using std::endl;
-using std::stringstream;
-using std::istringstream;
-using std::memcpy;
-using std::hex;
-using std::showbase;
-using std::to_string;
-using std::isnan;
-using std::signbit;
+using ::std::runtime_error;
+using ::std::string;
+using ::std::vector;
+using ::std::shared_ptr;
+using ::std::make_shared;
+using ::std::cout;
+using ::std::endl;
+using ::std::stringstream;
+using ::std::istringstream;
+using ::std::memcpy;
+using ::std::hex;
+using ::std::showbase;
+using ::std::to_string;
+using ::std::isnan;
+using ::std::signbit;
 
 // singleton instance;
 class Printer {
@@ -123,7 +126,7 @@ class Utility {
   template <typename T>
   static inline void savePtrIntoBytes(vector<uint8_t> *v, T *ptr) {
     const auto ptrVal = reinterpret_cast<uintptr_t>(ptr);
-    for (auto i = 0; i < ptrSize; i++) {
+    for (uint8_t i = 0; i < ptrSize; i++) {
       v->push_back(ptrVal >> (ptrSize * i) & 0x000000FF);
     }
   }
@@ -146,5 +149,8 @@ class Utility {
 
   static void drawLogoGraphic(bool = true);
 };
+
+}  // namespace internal
+}  // namespace twvm
 
 #endif  // UTILITY_H_

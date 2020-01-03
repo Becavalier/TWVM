@@ -2,6 +2,9 @@
 #ifndef OPCODE_H_
 #define OPCODE_H_
 
+namespace twvm {
+namespace internal {
+
 #define DECLARE_MEMBER_HANDLER(name, opcode) \
   static handlerProto do##name;
 
@@ -213,11 +216,11 @@
 struct WasmInstance;
 class Executor;
 
-using std::shared_ptr;
-using std::vector;
+using ::std::shared_ptr;
+using ::std::vector;
 using shared_wasm_t = shared_ptr<WasmInstance>;
 using handlerProto = void (shared_wasm_t&, Executor*);
-using std::function;
+using ::std::function;
 
 enum class WasmOpcode {
   ITERATE_ALL_OPCODE(DECLARE_NAMED_ENUM)
@@ -304,5 +307,8 @@ class OpCode {
   }
   ITERATE_ALL_OPCODE(DECLARE_MEMBER_HANDLER)
 };
+
+}  // namespace internal
+}  // namespace twvm
 
 #endif  // OPCODE_H_

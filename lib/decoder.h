@@ -15,14 +15,17 @@
 #include "lib/type.h"
 #include "lib/module.h"
 
-using std::function;
-using std::string;
-using std::memcpy;
-using std::malloc;
-using std::vector;
-using std::ifstream;
-using std::shared_ptr;
-using std::is_same;
+namespace twvm {
+namespace internal {
+
+using ::std::function;
+using ::std::string;
+using ::std::memcpy;
+using ::std::malloc;
+using ::std::vector;
+using ::std::ifstream;
+using ::std::shared_ptr;
+using ::std::is_same;
 
 class Reader {
  private:
@@ -218,5 +221,8 @@ class Decoder {
   static uint32_t readUint32(const uint8_t*, size_t* = nullptr);
   static uint64_t readUint64(const uint8_t*, size_t* = nullptr);
 };
+
+}  // namespace internal
+}  // namespace twvm
 
 #endif  // DECODER_H_

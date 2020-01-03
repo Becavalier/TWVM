@@ -11,11 +11,14 @@
 #include "lib/utility.h"
 #include "lib/type.h"
 
-using std::shared_ptr;
-using std::make_shared;
-using std::dec;
-using std::forward;
-using std::vector;
+namespace twvm {
+namespace internal {
+
+using ::std::shared_ptr;
+using ::std::make_shared;
+using ::std::dec;
+using ::std::forward;
+using ::std::vector;
 
 // use vector to simulate stack, then we can have the ability of random-access,
 // and high-efficient element accessing (without "stack->deque");
@@ -70,5 +73,8 @@ class Stack {
   shared_ptr<LabelFrameStack> labelStack = make_shared<LabelFrameStack>();
   shared_ptr<ActivationFrameStack> activationStack = make_shared<ActivationFrameStack>();
 };
+
+}  // namespace internal
+}  // namespace twvm
 
 #endif  // STACK_H_

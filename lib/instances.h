@@ -14,9 +14,12 @@
 #include "lib/utility.h"
 #include "lib/module.h"
 
-using std::string;
-using std::vector;
-using std::shared_ptr;
+namespace twvm {
+namespace internal {
+
+using ::std::string;
+using ::std::vector;
+using ::std::shared_ptr;
 
 class Stack;
 struct Store;
@@ -150,5 +153,8 @@ struct WasmInstance {
   shared_ptr<Store> store;
   shared_ptr<Stack> stack;
 };
+
+}  // namespace internal
+}  // namespace twvm
 
 #endif  // INSTANCES_H_

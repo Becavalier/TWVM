@@ -13,9 +13,9 @@
 #include "lib/stack.h"
 #include "lib/instantiator.h"
 
-using std::chrono::high_resolution_clock;
-using std::chrono::duration_cast;
-using std::chrono::microseconds;
+using ::std::chrono::high_resolution_clock;
+using ::std::chrono::duration_cast;
+using ::std::chrono::microseconds;
 
 const auto calcTimeInterval(decltype(high_resolution_clock::now()) &previous) {
   const auto stop = high_resolution_clock::now();

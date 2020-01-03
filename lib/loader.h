@@ -2,6 +2,9 @@
 #ifndef LOADER_H_
 #define LOADER_H_
 
+namespace twvm {
+namespace internal {
+
 #define WRAP_BUF_VARUINT(type) \
   Decoder::readVarUint<type>(getAbsReaderEndpoint(), &currentReaderOffset)
 #define WRAP_READER_VARUINT(type) \
@@ -30,12 +33,12 @@
 #include "lib/opcode.h"
 #include "lib/utility.h"
 
-using std::vector;
-using std::string;
-using std::shared_ptr;
-using std::make_shared;
-using std::ifstream;
-using std::basic_istream;
+using ::std::vector;
+using ::std::string;
+using ::std::shared_ptr;
+using ::std::make_shared;
+using ::std::ifstream;
+using ::std::basic_istream;
 
 class Loader {
  private:
@@ -157,5 +160,8 @@ class Loader {
     return buf.data() + currentReaderOffset;
   }
 };
+
+}  // namespace internal
+}  // namespace twvm
 
 #endif  // LOADER_H_

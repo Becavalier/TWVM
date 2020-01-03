@@ -5,8 +5,8 @@
 #include <string>
 #include <unordered_map>
 
-using std::string;
-using std::unordered_map;
+using ::std::string;
+using ::std::unordered_map;
 
 #define DECLARE_ENUM_KEY(name, opcode) \
   name,

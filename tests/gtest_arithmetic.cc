@@ -7,10 +7,10 @@
 #include "lib/executor.h"
 #include "lib/instantiator.h"
 
-using std::make_unique;
-using std::cout;
-using std::endl;
-using std::vector;
+using ::std::make_unique;
+using ::std::cout;
+using ::std::endl;
+using ::std::vector;
 
 /**
  * Case ISAs:

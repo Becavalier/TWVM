@@ -6,7 +6,10 @@
 #include "lib/include/macros.h"
 #include "lib/instances.h"
 
-using std::vector;
+namespace twvm {
+namespace internal {
+
+using ::std::vector;
 
 class WasmMemoryInstance;
 struct WasmFuncInstance;
@@ -23,5 +26,8 @@ struct Store {
   vector<WasmGlobalInstance> globalInsts;
   vector<WasmTableInstance> tableInsts;
 };
+
+}  // namespace internal
+}  // namespace twvm
 
 #endif  // STORE_H_

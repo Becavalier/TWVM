@@ -10,10 +10,12 @@
 #include "lib/type.h"
 #include "lib/utility.h"
 
-using std::unordered_map;
-using std::string;
-using std::type_index;
-using std::vector;
+namespace twvm {
+namespace internal {
+
+using ::std::unordered_map;
+using ::std::string;
+using ::std::vector;
 
 #define DECLARE_CACHE_CONTAINER(name, type) \
   unordered_map<uint64_t, vector<type>> name##Map = {};
@@ -80,5 +82,8 @@ class Cache {
     memargContainer.clear();
   }
 };
+
+}  // namespace internal
+}  // namespace twvm
 
 #endif  // CACHE_H_

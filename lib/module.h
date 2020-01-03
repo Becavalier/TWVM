@@ -9,9 +9,12 @@
 #include "lib/type.h"
 #include "lib/include/macros.h"
 
-using std::vector;
-using std::shared_ptr;
-using std::move;
+namespace twvm {
+namespace internal {
+
+using ::std::vector;
+using ::std::shared_ptr;
+using ::std::move;
 
 // pay attention to the bound check;
 #define WRAP_SELECT_METHOD(name, key) \
@@ -50,5 +53,8 @@ class Module {
 };
 
 using shared_module_t = shared_ptr<Module>;
+
+}  // namespace internal
+}  // namespace twvm
 
 #endif  // MODULE_H_

@@ -13,6 +13,9 @@
 #include "lib/decoder.h"
 #include "lib/utility.h"
 
+namespace twvm {
+namespace internal {
+
 #define DECLARE_BASIC_BINOP_METHOD(name, action, operandType, resultType, op, label) \
   void OpCode::do##name##action(shared_wasm_t &wasmIns, Executor *executor) { \
     retrieveDoubleRTVals<operandType>(wasmIns, executor, \
@@ -70,31 +73,31 @@
   V(F64, Gt, double, int32_t, >, f64.gt) \
   V(F64, Ge, double, int32_t, >=, f64.ge)
 
-using std::forward;
-using std::floor;
-using std::ceilf;
-using std::ceill;
-using std::sqrtf;
-using std::sqrt;
-using std::abs;
-using std::numeric_limits;
-using std::trunc;
+using ::std::forward;
+using ::std::floor;
+using ::std::ceilf;
+using ::std::ceill;
+using ::std::sqrtf;
+using ::std::sqrt;
+using ::std::abs;
+using ::std::numeric_limits;
+using ::std::trunc;
 
 #define ENABLE_DEBUG
 #define WRAP_FORWARD_INT_FIELD(keyName, type) \
   const auto keyName = Decoder::readVarInt<type>(executor->forward_());
 
 #ifdef ENABLE_DEBUG
-  using std::hex;
-  using std::showbase;
+  using ::std::hex;
+  using ::std::showbase;
   #define INSPECT_STACK(opcodeName, wasmIns, executor) \
     debug(opcodeName, wasmIns, executor)
 #else
   #define INSPECT_STACK(...)
 #endif
 
-using std::make_shared;
-using std::move;
+using ::std::make_shared;
+using ::std::move;
 
 template <typename T>
 void OpCode::retrieveDoubleRTVals(
@@ -1252,3 +1255,6 @@ void OpCode::doI64RemU(shared_wasm_t &wasmIns, Executor *executor) {}
 void OpCode::doI64ShrS(shared_wasm_t &wasmIns, Executor *executor) {}
 
 void OpCode::doI64ShrU(shared_wasm_t &wasmIns, Executor *executor) {}
+
+}  // namespace internal
+}  // namespace twvm

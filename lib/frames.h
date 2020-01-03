@@ -14,13 +14,16 @@
 #include "lib/type.h"
 #include "lib/utility.h"
 
-using std::memcpy;
-using std::memcmp;
-using std::vector;
-using std::shared_ptr;
-using std::ostream;
-using std::is_same;
-using std::move;
+namespace twvm {
+namespace internal {
+
+using ::std::memcpy;
+using ::std::memcmp;
+using ::std::vector;
+using ::std::shared_ptr;
+using ::std::ostream;
+using ::std::is_same;
+using ::std::move;
 
 struct WasmFuncInstance;
 
@@ -149,5 +152,8 @@ class ActivationFrame {
   // determine whether we reach the "end" of the function;
   size_t labelStackHeight = 0;
 };
+
+}  // namespace internal
+}  // namespace twvm
 
 #endif  // FRAMES_H_

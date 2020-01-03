@@ -10,19 +10,22 @@
 #include "lib/utility.h"
 #include "lib/opcode.h"
 
+namespace twvm {
+namespace internal {
+
 vector<uint8_t> Loader::buf;
 shared_ptr<Reader> Loader::reader = nullptr;
 uint32_t Loader::byteCounter = 0;
 size_t Loader::currentReaderOffset = 0;
 
-using std::endl;
-using std::hex;
-using std::ifstream;
-using std::ios;
-using std::vector;
-using std::array;
+using ::std::endl;
+using ::std::hex;
+using ::std::ifstream;
+using ::std::ios;
+using ::std::vector;
+using ::std::array;
 
-shared_module_t Loader::init(const std::string &fileName) {
+shared_module_t Loader::init(const ::std::string &fileName) {
   Utility::drawLogoGraphic();
   (Printer::instance() << "- [LOADING PHASE] -\n").debug();
   ifstream in(fileName, ios::binary);
@@ -434,3 +437,6 @@ void Loader::parseElementSection(const shared_module_t &module) {
 void Loader::parseDataSection(const shared_module_t &module) {
   (Printer::instance() << "parsing data section.\n").debug();
 }
+
+}  // namespace internal
+}  // namespace twvm

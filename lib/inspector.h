@@ -5,12 +5,18 @@
 #include <memory>
 #include "lib/instantiator.h"
 
-using std::shared_ptr;
+namespace twvm {
+namespace internal {
+
+using ::std::shared_ptr;
 
 // validate the structure of "WasmInstance" before execution;
 class Inspector {
  public:
   static void inspect(shared_ptr<WasmInstance>);
 };
+
+}  // namespace internal
+}  // namespace twvm
 
 #endif  // INSPECTOR_H_

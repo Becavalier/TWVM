@@ -9,9 +9,12 @@
 #include <utility>
 #include <vector>
 
-using std::function;
-using std::string;
-using std::vector;
+namespace twvm {
+namespace internal {
+  
+using ::std::function;
+using ::std::string;
+using ::std::vector;
 
 class Options {
  public:
@@ -43,5 +46,8 @@ struct CommandLine {
   static bool isDebugMode;
   static string executeModulePath;
 };
+
+}  // namespace internal
+}  // namespace twvm
 
 #endif  // CMDLINE_H_

@@ -8,10 +8,10 @@
 #include "lib/cmdline.h"
 #include "lib/inspector.h"
 
-using std::thread;
-using std::string;
-using std::make_unique;
-using std::exit;
+using ::std::thread;
+using ::std::string;
+using ::std::make_unique;
+using ::std::exit;
 
 
 int main(int argc, const char **argv) {

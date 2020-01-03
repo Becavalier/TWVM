@@ -7,11 +7,14 @@
 #include "lib/decoder.h"
 #include "lib/utility.h"
 
-using std::find_if;
-using std::hex;
-using std::showbase;
-using std::to_string;
-using std::make_shared;
+namespace twvm {
+namespace internal {
+
+using ::std::find_if;
+using ::std::hex;
+using ::std::showbase;
+using ::std::to_string;
+using ::std::make_shared;
 
 const shared_ptr<WasmInstance> Instantiator::instantiate(shared_module_t module) {
   (Printer::instance() << '\n').debug();
@@ -36,7 +39,7 @@ const shared_ptr<WasmInstance> Instantiator::instantiate(shared_module_t module)
   if (staticMemory) {
     // we can not use "push_back" here, -
     // since the destructor will be called when the temp value is copied by default copy-constructor -
-    // (even for move-constructor, we didn't use std::move), and the memory we allocated will be lost.
+    // (even for move-constructor, we didn't use ::std::move), and the memory we allocated will be lost.
     // so, only allow the way of "placement-new" here.
     store->memoryInsts.emplace_back(staticMemory->initialPages, staticMemory->maximumPages);
     moduleInst->memories.push_back(&store->memoryInsts.back());
@@ -134,3 +137,6 @@ const shared_ptr<WasmInstance> Instantiator::instantiate(shared_module_t module)
 
   return wasmIns;
 }
+
+}  // namespace internal
+}  // namespace twvm
